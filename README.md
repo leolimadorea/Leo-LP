@@ -3,7 +3,7 @@
 Landing page do **Método Dólar** (Leonardo Dorea). Página estática, standalone (sem build).
 
 ## Estrutura
-- `metodo-dolar.html` — a página completa
+- `index.html` — a página completa
 - `assets/` — imagens, fontes (woff2), runtime e fotos
 
 ## Rodar localmente
@@ -13,7 +13,7 @@ Qualquer servidor estático serve. Ex.:
 python3 -m http.server 8123
 ```
 
-Depois abra: <http://localhost:8123/metodo-dolar.html>
+Depois abra: <http://localhost:8123/>
 
 ## Checkout
 Os CTAs apontam para o checkout da Kiwify e repassam automaticamente os
