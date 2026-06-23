@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="assets/gsap.min.js"></script>
+<style>
+[data-reveal],[data-glow]{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .75s cubic-bezier(.2,.8,.2,1)}
+[data-reveal].mg-in,[data-glow].mg-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){[data-reveal],[data-glow]{transition:none}}
+@media (max-width:640px){.hero-cta{width:100%!important;justify-content:center!important;font-size:14px!important;padding:15px 14px!important;gap:8px!important}.hero-cta span{font-size:12px!important;padding:2px 7px!important}}
+@media (max-width:360px){.hero-cta{font-size:12.5px!important;padding:14px 10px!important;gap:6px!important}}
+</style>
+<script src="assets/39aa028b-1e4e-41c8-8c4d-5b0048fb82ee.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/db561531-93f8-450b-9dff-2de6ac58155a.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/e7ffb4b3-7207-4013-af4a-626be5ec9237.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/7d01af71-807f-4f87-9b9f-0663b348057b.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/a175c62d-169c-40f8-94bb-8d9bceaca3f3.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/7400724d-16ac-4fae-b003-781e6ff576bd.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/af5a0a55-6a01-4eb0-af0d-32c93ccda2f4.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/db561531-93f8-450b-9dff-2de6ac58155a.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/e7ffb4b3-7207-4013-af4a-626be5ec9237.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/7d01af71-807f-4f87-9b9f-0663b348057b.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/a175c62d-169c-40f8-94bb-8d9bceaca3f3.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/7400724d-16ac-4fae-b003-781e6ff576bd.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/af5a0a55-6a01-4eb0-af0d-32c93ccda2f4.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/db561531-93f8-450b-9dff-2de6ac58155a.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/e7ffb4b3-7207-4013-af4a-626be5ec9237.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/7d01af71-807f-4f87-9b9f-0663b348057b.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/a175c62d-169c-40f8-94bb-8d9bceaca3f3.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/7400724d-16ac-4fae-b003-781e6ff576bd.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/af5a0a55-6a01-4eb0-af0d-32c93ccda2f4.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/ae9213df-9108-4e49-988a-38f2651240a1.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/0f280672-c0f3-40d3-af90-ec583a928941.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/9be9cd5d-02c1-424d-9c91-3afffdd54991.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/a6c94497-7c7a-47cc-882d-6eaee0c779fb.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/ae9213df-9108-4e49-988a-38f2651240a1.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/0f280672-c0f3-40d3-af90-ec583a928941.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/9be9cd5d-02c1-424d-9c91-3afffdd54991.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/a6c94497-7c7a-47cc-882d-6eaee0c779fb.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/ae9213df-9108-4e49-988a-38f2651240a1.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/0f280672-c0f3-40d3-af90-ec583a928941.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/9be9cd5d-02c1-424d-9c91-3afffdd54991.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/a6c94497-7c7a-47cc-882d-6eaee0c779fb.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/ae9213df-9108-4e49-988a-38f2651240a1.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/0f280672-c0f3-40d3-af90-ec583a928941.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/9be9cd5d-02c1-424d-9c91-3afffdd54991.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/a6c94497-7c7a-47cc-882d-6eaee0c779fb.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("assets/ae9213df-9108-4e49-988a-38f2651240a1.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("assets/0f280672-c0f3-40d3-af90-ec583a928941.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("assets/9be9cd5d-02c1-424d-9c91-3afffdd54991.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("assets/a6c94497-7c7a-47cc-882d-6eaee0c779fb.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/6f4c4277-cafd-4cbe-9ec3-a55982e3f77c.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/56df8330-3ce2-4610-8696-7b074ddbecff.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/1c30baa5-089a-4283-bd33-4e7c459087d1.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/6f4c4277-cafd-4cbe-9ec3-a55982e3f77c.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/56df8330-3ce2-4610-8696-7b074ddbecff.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/1c30baa5-089a-4283-bd33-4e7c459087d1.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/6f4c4277-cafd-4cbe-9ec3-a55982e3f77c.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/56df8330-3ce2-4610-8696-7b074ddbecff.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/1c30baa5-089a-4283-bd33-4e7c459087d1.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/6f4c4277-cafd-4cbe-9ec3-a55982e3f77c.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/56df8330-3ce2-4610-8696-7b074ddbecff.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/1c30baa5-089a-4283-bd33-4e7c459087d1.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #070808; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  ::selection { background: #00d563; color: #04140b; }
+  @keyframes mg-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes mg-blink { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
+  @keyframes mg-glow { 0%,100% { opacity: .5; transform: scale(1); } 50% { opacity: .85; transform: scale(1.08); } }
+  @keyframes mg-spin { to { transform: rotate(360deg); } }
+  @keyframes mg-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @keyframes mg-pop { 0% { opacity:0; transform: translateY(8px) scale(.97); } 100% { opacity:1; transform: translateY(0) scale(1); } }
+</style>
+<script src="assets/442bca00-b47d-475e-a375-02a5e2e36ed8.js"></script>
+</helmet>
+
+<div style="background:#070808;color:#f4f5f3;font-family:'Plus Jakarta Sans',sans-serif;overflow-x:hidden;position:relative;">
+
+  <!-- ===== TOP BAR ===== -->
+  <header style="position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:13px 18px;background:rgba(7,8,8,0.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,0.07);">
+    <div style="display:flex;align-items:center;gap:11px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;letter-spacing:-0.02em;">
+      <span style="position:relative;display:inline-flex;align-items:center;width:62px;height:30px;border-radius:999px;border:2px solid #00d563;background:#06140d;box-shadow:0 0 16px -6px rgba(0,213,99,0.6);flex:none;">
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;color:#52575a;position:absolute;left:9px;">R$</span>
+        <span style="position:absolute;right:2px;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:50%;background:#00d563;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;color:#04140b;">$</span>
+      </span>
+      <span>MÉTODO <span style="color:#00d563;">DÓLAR</span></span>
+    </div>
+    <a href="https://pay.kiwify.com.br/vq8oeyM" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;background:#00d563;color:#04140b;font-weight:700;font-size:14px;padding:11px 20px;border-radius:10px;box-shadow:0 0 0 1px rgba(0,213,99,0.4),0 8px 24px -8px rgba(0,213,99,0.6);white-space:nowrap;">Quero · R$97</a>
+  </header>
+
+  <!-- ===== ANNOUNCEMENT MARQUEE ===== -->
+  <div style="background:#00d563;color:#04140b;overflow:hidden;white-space:nowrap;padding:8px 0;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;">
+    <div style="display:inline-block;animation:mg-marquee 28s linear infinite;">
+      <span style="padding:0 28px;">★ Receba em dólar, gaste em real</span><span style="padding:0 28px;">★ +5.000 alunos vendendo para o exterior</span><span style="padding:0 28px;">★ Feche seu 1º cliente em 30 dias</span><span style="padding:0 28px;">★ Ganhe até 5x mais pelo mesmo serviço</span><span style="padding:0 28px;">★ Receba em dólar, gaste em real</span><span style="padding:0 28px;">★ +5.000 alunos vendendo para o exterior</span><span style="padding:0 28px;">★ Feche seu 1º cliente em 30 dias</span><span style="padding:0 28px;">★ Ganhe até 5x mais pelo mesmo serviço</span>
+    </div>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section style="position:relative;max-width:1180px;margin:0 auto;padding:clamp(40px,8vw,72px) 22px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,48px);align-items:center;">
+    <div style="position:absolute;top:-40px;left:-120px;width:480px;height:480px;background:radial-gradient(circle,rgba(0,213,99,0.16),transparent 65%);filter:blur(20px);pointer-events:none;animation:mg-glow 6s ease-in-out infinite;"></div>
+    <canvas data-mg-particles="" style="position:absolute;inset:-10% -4%;width:108%;height:120%;z-index:1;pointer-events:none;opacity:0.9;"></canvas>
+    <div style="position:relative;z-index:2;">
+      <div style="display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(0,213,99,0.35);background:rgba(0,213,99,0.07);color:#00d563;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;padding:7px 13px;border-radius:999px;margin-bottom:26px;">
+        <span style="width:7px;height:7px;border-radius:50%;background:#00d563;animation:mg-blink 1.4s infinite;"></span>
+        MÉTODO PASSO A PASSO · ATUALIZADO 2026
+      </div>
+      <h1 data-scrollfloat="" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(40px,5.6vw,68px);line-height:0.98;letter-spacing:-0.03em;margin:0 0 22px;">
+        Pare de cobrar<br>em <span style="position:relative;color:#6b7280;text-decoration:line-through;text-decoration-color:rgba(239,68,68,0.7);">real</span>.<br>Receba em <span style="color:#00d563;">dólar</span>.
+      </h1>
+      <p data-reveal="" style="font-size:19px;line-height:1.55;color:#a9aeaa;max-width:520px;margin:0 0 32px;">
+        O método pra você fechar seu <strong style="color:#f4f5f3;">primeiro cliente no exterior em 30 dias</strong> — e ganhar até <strong style="color:#f4f5f3;">5x mais</strong> fazendo o mesmo serviço que você já entrega hoje.
+      </p>
+      <div data-reveal="" style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-bottom:28px;">
+        <a href="https://pay.kiwify.com.br/vq8oeyM" class="hero-cta" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;background:#00d563;color:#04140b;font-weight:700;font-size:17px;padding:17px 30px;border-radius:13px;box-shadow:0 0 0 1px rgba(0,213,99,0.4),0 16px 40px -12px rgba(0,213,99,0.7);">
+          QUERO VENDER PARA O EXTERIOR
+          <span style="font-family:'JetBrains Mono',monospace;background:rgba(4,20,11,0.18);padding:3px 9px;border-radius:7px;font-size:14px;">R$97</span>
+        </a>
+        <div style="font-size:13px;color:#7c817d;line-height:1.4;">7 dias de garantia<br>incondicional</div>
+      </div>
+      <div data-reveal="" style="display:flex;align-items:center;gap:14px;">
+        <div style="display:flex;">
+          <img id="hero-av-1" src="assets/faces/aluno-2.jpg" alt="" style="width:34px;height:34px;border-radius:50%;border:2px solid #070808;margin-left:0;border-radius:50%;object-fit:cover;display:block;">
+          <img id="hero-av-2" src="assets/faces/depo-2.jpg" alt="" style="width:34px;height:34px;border-radius:50%;border:2px solid #070808;margin-left:-12px;border-radius:50%;object-fit:cover;display:block;">
+          <img id="hero-av-3" src="assets/faces/depo-3.jpg" alt="" style="width:34px;height:34px;border-radius:50%;border:2px solid #070808;margin-left:-12px;border-radius:50%;object-fit:cover;display:block;">
+          <img id="hero-av-4" src="assets/faces/aluno-3.jpg" alt="" style="width:34px;height:34px;border-radius:50%;border:2px solid #070808;margin-left:-12px;border-radius:50%;object-fit:cover;display:block;">
+        </div>
+        <div style="font-size:13px;color:#a9aeaa;"><strong style="color:#f4f5f3;">+5.000 alunos</strong> já estão recebendo em dólar</div>
+      </div>
+    </div>
+
+    <div style="position:relative;z-index:2;">
+      <div data-reveal="" style="position:relative;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,0.09);box-shadow:0 40px 90px -30px rgba(0,0,0,0.9);">
+        <img src="assets/453f82ce-b1e4-4e2d-b129-d6f5ef0e3980.png" alt="Leonardo Dorea" style="display:block;width:100%;height:clamp(380px,58vh,520px);object-fit:cover;object-position:center 22%;filter:saturate(0.92)contrast(1.04);">
+        <div style="position:absolute;left:16px;bottom:16px;right:16px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,11,10,0.72);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:12px 16px;">
+          <div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;">Leonardo Dorea</div>
+            <div style="font-size:12px;color:#9ca39d;">Mentor · +R$200mil/mês no exterior</div>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace;color:#00d563;font-weight:700;font-size:13px;">$ USD</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS STRIP ===== -->
+  <section style="max-width:1180px;margin:24px auto 0;padding:0 28px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.07);border-radius:18px;overflow:hidden;">
+      <div data-reveal="" style="background:#0b0d0c;padding:26px 22px;">
+        <div data-count="5000" data-count-prefix="+" data-count-sep="." style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:32px;color:#00d563;letter-spacing:-0.02em;">+5.000</div>
+        <div style="font-size:13px;color:#9ca39d;margin-top:4px;">alunos formados</div>
+      </div>
+      <div data-reveal="" style="background:#0b0d0c;padding:26px 22px;">
+        <div data-count="300" data-count-prefix="+" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:32px;color:#f4f5f3;letter-spacing:-0.02em;">+300</div>
+        <div style="font-size:13px;color:#9ca39d;margin-top:4px;">mentorados de perto</div>
+      </div>
+      <div data-reveal="" style="background:#0b0d0c;padding:26px 22px;">
+        <div data-count="5" data-count-suffix="x" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:32px;color:#f4f5f3;letter-spacing:-0.02em;">5x</div>
+        <div style="font-size:13px;color:#9ca39d;margin-top:4px;">mais por serviço</div>
+      </div>
+      <div data-reveal="" style="background:#0b0d0c;padding:26px 22px;">
+        <div data-count="30" data-count-suffix=" dias" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:32px;color:#f4f5f3;letter-spacing:-0.02em;">30 dias</div>
+        <div style="font-size:13px;color:#9ca39d;margin-top:4px;">pro 1º cliente</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROBLEM / A CONTA ===== -->
+  <section style="max-width:1180px;margin:96px auto 0;padding:0 28px;">
+    <div style="text-align:center;max-width:680px;margin:0 auto 48px;">
+      <div style="font-family:'JetBrains Mono',monospace;color:#00d563;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px;">A real da conta</div>
+      <h2 data-scrollfloat="" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,42px);line-height:1.06;letter-spacing:-0.02em;margin:0;">Mesmo serviço.<br>Pagamento <span style="color:#00d563;">5x maior.</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;max-width:840px;margin:0 auto;">
+      <div data-reveal="" style="background:#0b0d0c;border:1px solid rgba(239,68,68,0.18);border-radius:18px;padding:30px;">
+        <div style="font-size:13px;color:#ef6b6b;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:18px;">Cliente brasileiro</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:40px;color:#9aa09b;letter-spacing:-0.02em;">R$ 1.500</div>
+        <div style="font-size:14px;color:#7c817d;margin-top:8px;line-height:1.5;">"Tá caro", pede desconto, atrasa o pagamento e some.</div>
+      </div>
+      <div data-reveal="" style="position:relative;background:linear-gradient(160deg,rgba(0,213,99,0.1),#0b0d0c 60%);border:1px solid rgba(0,213,99,0.4);border-radius:18px;padding:30px;">
+        <div style="font-size:13px;color:#00d563;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:18px;">Cliente no exterior</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:40px;color:#00d563;letter-spacing:-0.02em;">R$ 8.250</div>
+        <div style="font-size:14px;color:#b9c2bc;margin-top:8px;line-height:1.5;">Acha barato, paga adiantado e indica outros 3.</div>
+        <div style="position:absolute;top:24px;right:24px;font-family:'JetBrains Mono',monospace;font-size:12px;background:rgba(0,213,99,0.15);color:#00d563;padding:5px 10px;border-radius:8px;">US$ 1.500</div>
+      </div>
+    </div>
+    <p data-reveal="" style="text-align:center;color:#7c817d;font-size:15px;margin:28px auto 0;max-width:560px;">Você não precisa de mais clientes. Precisa dos clientes <strong style="color:#f4f5f3;">certos</strong> — e eles estão lá fora.</p>
+  </section>
+
+  <!-- ===== QUEM SOU EU ===== -->
+  <section style="max-width:1180px;margin:104px auto 0;padding:0 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(36px,5vw,54px);align-items:center;">
+    <div style="position:relative;">
+      <div style="position:absolute;inset:auto auto -18px -18px;width:140px;height:140px;background:radial-gradient(circle,rgba(0,213,99,0.22),transparent 70%);filter:blur(10px);"></div>
+      <div data-reveal="" style="position:relative;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.09);">
+        <img src="assets/7e5fd90d-7781-4c4b-b42f-7cece6b9ba99.jpg" alt="Leonardo trabalhando" style="display:block;width:100%;height:clamp(360px,52vh,480px);object-fit:cover;object-position:center 30%;">
+      </div>
+    </div>
+    <div data-reveal="">
+      <div style="font-family:'JetBrains Mono',monospace;color:#00d563;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;">Quem te ensina</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,3.4vw,40px);line-height:1.05;letter-spacing:-0.02em;margin:0 0 22px;">Prazer, Leonardo Dorea.</h2>
+      <p style="font-size:17px;line-height:1.65;color:#a9aeaa;margin:0 0 18px;">
+        Há alguns anos eu cobrava em real, corria atrás de cliente que sumia e via meu trabalho ser desvalorizado todo mês. Até que descobri uma coisa simples: <strong style="color:#f4f5f3;">o problema nunca foi o meu serviço — era o meu mercado.</strong>
+      </p>
+      <p style="font-size:17px;line-height:1.65;color:#a9aeaa;margin:0 0 28px;">
+        Hoje faturo <strong style="color:#00d563;">mais de R$200 mil por mês</strong> vendendo pra fora, já formei <strong style="color:#f4f5f3;">+5.000 alunos</strong> e mentorei <strong style="color:#f4f5f3;">mais de 300 pessoas</strong> de perto. Coloquei todo o passo a passo no Método Dólar pra você encurtar anos de tentativa e erro.
+      </p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:9px;font-size:14px;color:#b9c2bc;"><span style="color:#00d563;">✓</span> Sem inglês fluente</div>
+        <div style="display:flex;align-items:center;gap:9px;font-size:14px;color:#b9c2bc;"><span style="color:#00d563;">✓</span> Sem CNPJ no exterior</div>
+        <div style="display:flex;align-items:center;gap:9px;font-size:14px;color:#b9c2bc;"><span style="color:#00d563;">✓</span> Sem sair de casa</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MÓDULOS ===== -->
+  <section style="max-width:1180px;margin:108px auto 0;padding:0 28px;">
+    <div style="text-align:center;max-width:680px;margin:0 auto 46px;">
+      <div style="font-family:'JetBrains Mono',monospace;color:#00d563;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px;">O que você vai aprender</div>
+      <h2 data-scrollfloat="" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,42px);line-height:1.06;letter-spacing:-0.02em;margin:0;">Do zero ao dólar na conta</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;">
+      <div style="background:#0b0d0c;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:26px;" data-glow="">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#00d563;margin-bottom:14px;">01</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;margin:0 0 9px;">Mentalidade dólar</h3>
+        <p style="font-size:14px;line-height:1.55;color:#9ca39d;margin:0;">Pare de competir por preço no Brasil e enxergue o mercado global que paga melhor.</p>
+      </div>
+      <div style="background:#0b0d0c;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:26px;" data-glow="">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#00d563;margin-bottom:14px;">02</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;margin:0 0 9px;">Posicionamento global</h3>
+        <p style="font-size:14px;line-height:1.55;color:#9ca39d;margin:0;">Monte um perfil e portfólio que faz o cliente lá fora confiar e querer fechar com você.</p>
+      </div>
+      <div style="background:#0b0d0c;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:26px;" data-glow="">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#00d563;margin-bottom:14px;">03</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;margin:0 0 9px;">Onde achar clientes</h3>
+        <p style="font-size:14px;line-height:1.55;color:#9ca39d;margin:0;">Upwork, LinkedIn, comunidades e cold outreach: os canais que realmente convertem.</p>
+      </div>
+      <div style="background:#0b0d0c;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:26px;" data-glow="">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#00d563;margin-bottom:14px;">04</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;margin:0 0 9px;">Proposta que fecha</h3>
+        <p style="font-size:14px;line-height:1.55;color:#9ca39d;margin:0;">Scripts prontos e precificação em USD pra você cobrar caro sem medo e fechar.</p>
+      </div>
+      <div style="background:#0b0d0c;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:26px;" data-glow="">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#00d563;margin-bottom:14px;">05</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;margin:0 0 9px;">Feche sem precisar de call</h3>
+        <p style="font-size:14px;line-height:1.55;color:#9ca39d;margin:0;">Fecha tudo no texto, sem reunião nem call. E dá até pra vender em português pra brasileiros que moram fora — que também pagam em dólar.</p>
+      </div>
+      <div style="background:#0b0d0c;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:26px;" data-glow="">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#00d563;margin-bottom:14px;">06</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;margin:0 0 9px;">Receber em dólar</h3>
+        <p style="font-size:14px;line-height:1.55;color:#9ca39d;margin:0;">Nas aulas você descobre as melhores plataformas pra receber em dólar — as com menor taxa e mais seguras, sem burocracia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DEPOIMENTOS ===== -->
+  <section style="max-width:1180px;margin:108px auto 0;padding:0 28px;">
+    <div style="text-align:center;max-width:680px;margin:0 auto 46px;">
+      <div style="font-family:'JetBrains Mono',monospace;color:#00d563;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px;">Quem aplicou, faturou</div>
+      <h2 data-scrollfloat="" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,42px);line-height:1.06;letter-spacing:-0.02em;margin:0;">Resultados reais de alunos</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;">
+      <div style="background:#0b0d0c;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px;" data-glow="">
+        <div style="color:#00d563;font-size:14px;margin-bottom:12px;">★★★★★</div>
+        <p style="font-size:15px;line-height:1.6;color:#d6dad6;margin:0 0 18px;">"Fechei meu primeiro cliente dos EUA em 3 semanas. Cobrei US$ 1.800 por um projeto que aqui eu fazia por R$ 2 mil."</p>
+        <div style="display:flex;align-items:center;gap:11px;">
+          <img id="depo-1" src="assets/faces/depo-1.jpg" alt="Foto de Mateus R." style="width:40px;height:40px;flex:none;border-radius:50%;object-fit:cover;display:block;">
+          <div><div style="font-size:14px;font-weight:600;">Mateus R.</div><div style="font-size:12px;color:#8a8f8b;">Dev front-end · Curitiba</div></div>
+        </div>
+      </div>
+      <div style="background:#0b0d0c;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px;" data-glow="">
+        <div style="color:#00d563;font-size:14px;margin-bottom:12px;">★★★★★</div>
+        <p style="font-size:15px;line-height:1.6;color:#d6dad6;margin:0 0 18px;">"Saí de R$ 3 mil pra US$ 4.200 por mês com 2 clientes fixos lá fora. Mudou minha vida em 4 meses."</p>
+        <div style="display:flex;align-items:center;gap:11px;">
+          <img id="depo-2" src="assets/faces/depo-2.jpg" alt="Foto de Juliana A." style="width:40px;height:40px;flex:none;border-radius:50%;object-fit:cover;display:block;">
+          <div><div style="font-size:14px;font-weight:600;">Juliana A.</div><div style="font-size:12px;color:#8a8f8b;">Designer UI · Belo Horizonte</div></div>
+        </div>
+      </div>
+      <div style="background:#0b0d0c;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px;" data-glow="">
+        <div style="color:#00d563;font-size:14px;margin-bottom:12px;">★★★★★</div>
+        <p style="font-size:15px;line-height:1.6;color:#d6dad6;margin:0 0 18px;">"Achei que precisava de inglês perfeito. Fechei meus primeiros clientes só no texto, sem nenhuma call."</p>
+        <div style="display:flex;align-items:center;gap:11px;">
+          <img id="depo-3" src="assets/faces/depo-3.jpg" alt="Foto de Rafael S." style="width:40px;height:40px;flex:none;border-radius:50%;object-fit:cover;display:block;">
+          <div><div style="font-size:14px;font-weight:600;">Rafael S.</div><div style="font-size:12px;color:#8a8f8b;">Editor de vídeo · Recife</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ALUNOS RECEBENDO EM DÓLAR (STRIPE) ===== -->
+  <section style="max-width:1180px;margin:108px auto 0;padding:0 28px;">
+    <div style="text-align:center;max-width:680px;margin:0 auto 46px;">
+      <div style="font-family:'JetBrains Mono',monospace;color:#00d563;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px;">Dólar caindo na conta</div>
+      <h2 data-scrollfloat="" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,42px);line-height:1.06;letter-spacing:-0.02em;margin:0;">Alunos recebendo em dólar</h2>
+      <p style="font-size:15px;color:#9ca39d;margin:14px 0 0;line-height:1.5;">Notificações reais da Stripe pingando no celular dos alunos. Esse pode ser o seu print em breve.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px;align-items:center;max-width:1000px;margin:0 auto;">
+
+      <!-- Stripe grouped notification recreation -->
+      <div data-reveal="" style="width:100%;max-width:430px;justify-self:center;background:linear-gradient(165deg,#5e97cc,#4d83bb);border-radius:30px;padding:20px;box-shadow:0 36px 80px -28px rgba(0,0,0,0.75);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding:2px 6px 0;">
+          <span style="font-size:26px;font-weight:600;color:#fff;letter-spacing:-0.01em;">Stripe</span>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.2);color:#eaf2fb;font-size:14px;font-weight:600;padding:8px 13px;border-radius:999px;">∧ Show less</span>
+            <span style="width:33px;height:33px;border-radius:50%;background:rgba(255,255,255,0.2);color:#eaf2fb;display:inline-flex;align-items:center;justify-content:center;font-size:15px;">✕</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;align-items:flex-start;gap:13px;background:rgba(31,68,104,0.42);border-radius:20px;padding:14px 16px;">
+            <span style="flex:none;width:46px;height:46px;border-radius:12px;background:linear-gradient(160deg,#8a6bff,#635bff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:27px;font-style:italic;">S</span>
+            <div style="flex:1;min-width:0;">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;"><span style="font-weight:700;color:#fff;font-size:17px;">Stripe</span><span style="color:#cfe0f0;font-size:14px;white-space:nowrap;">3:30 AM</span></div>
+              <div style="color:#eef4fa;font-size:16px;line-height:1.35;margin-top:2px;">You received a payment of <b>$2,480.00</b>!</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:13px;background:rgba(31,68,104,0.42);border-radius:20px;padding:14px 16px;">
+            <span style="flex:none;width:46px;height:46px;border-radius:12px;background:linear-gradient(160deg,#8a6bff,#635bff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:27px;font-style:italic;">S</span>
+            <div style="flex:1;min-width:0;">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;"><span style="font-weight:700;color:#fff;font-size:17px;">Stripe</span><span style="color:#cfe0f0;font-size:14px;white-space:nowrap;">12:55 AM</span></div>
+              <div style="color:#eef4fa;font-size:16px;line-height:1.35;margin-top:2px;">You received a payment of <b>$3,900.00</b>!</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:13px;background:rgba(31,68,104,0.42);border-radius:20px;padding:14px 16px;">
+            <span style="flex:none;width:46px;height:46px;border-radius:12px;background:linear-gradient(160deg,#8a6bff,#635bff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:27px;font-style:italic;">S</span>
+            <div style="flex:1;min-width:0;">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;"><span style="font-weight:700;color:#fff;font-size:17px;">Stripe</span><span style="color:#cfe0f0;font-size:14px;white-space:nowrap;">Yesterday</span></div>
+              <div style="color:#eef4fa;font-size:16px;line-height:1.35;margin-top:2px;">You received a payment of <b>$1,750.00</b>!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- copy + student photos -->
+      <div>
+        <p data-reveal="" style="font-size:18px;line-height:1.6;color:#cdd2ce;margin:0 0 28px;">Enquanto o Brasil dorme, o cliente no exterior paga. <strong style="color:#f4f5f3;">Fuso horário a seu favor</strong> — você acorda com o dólar já na conta.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;align-items:center;gap:14px;background:#0b0d0c;border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:13px 16px;" data-glow="">
+            <img id="aluno-1" src="assets/faces/aluno-1.jpg" alt="Foto de Camila F." style="width:48px;height:48px;flex:none;border-radius:50%;object-fit:cover;display:block;">
+            <div style="flex:1;min-width:0;"><div style="font-size:15px;font-weight:600;color:#f4f5f3;">Camila F.</div><div style="font-size:12px;color:#8a8f8b;">Social media · São Paulo</div></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:15px;color:#00d563;white-space:nowrap;">+US$ 4.200<span style="display:block;font-weight:400;font-size:10px;color:#6a6f6b;text-align:right;">este mês</span></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;background:#0b0d0c;border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:13px 16px;" data-glow="">
+            <img id="aluno-2" src="assets/faces/aluno-2.jpg" alt="Foto de Bruno M." style="width:48px;height:48px;flex:none;border-radius:50%;object-fit:cover;display:block;">
+            <div style="flex:1;min-width:0;"><div style="font-size:15px;font-weight:600;color:#f4f5f3;">Bruno M.</div><div style="font-size:12px;color:#8a8f8b;">Dev back-end · Porto Alegre</div></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:15px;color:#00d563;white-space:nowrap;">+US$ 6.800<span style="display:block;font-weight:400;font-size:10px;color:#6a6f6b;text-align:right;">este mês</span></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;background:#0b0d0c;border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:13px 16px;" data-glow="">
+            <img id="aluno-3" src="assets/faces/aluno-3.jpg" alt="Foto de Larissa T." style="width:48px;height:48px;flex:none;border-radius:50%;object-fit:cover;display:block;">
+            <div style="flex:1;min-width:0;"><div style="font-size:15px;font-weight:600;color:#f4f5f3;">Larissa T.</div><div style="font-size:12px;color:#8a8f8b;">Editora de vídeo · Florianópolis</div></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:15px;color:#00d563;white-space:nowrap;">+US$ 3.500<span style="display:block;font-weight:400;font-size:10px;color:#6a6f6b;text-align:right;">este mês</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== PARA QUEM É / NÃO É ===== -->
+  <section style="max-width:1000px;margin:108px auto 0;padding:0 28px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;">
+      <div data-reveal="" style="background:linear-gradient(160deg,rgba(0,213,99,0.08),#0b0d0c 55%);border:1px solid rgba(0,213,99,0.3);border-radius:18px;padding:32px;">
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;margin:0 0 20px;">É pra você se…</h3>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;">
+          <li style="display:flex;gap:11px;font-size:15px;color:#d6dad6;line-height:1.5;"><span style="color:#00d563;flex:none;">✓</span> Já presta serviço (dev, design, edição, social media, tráfego…)</li>
+          <li style="display:flex;gap:11px;font-size:15px;color:#d6dad6;line-height:1.5;"><span style="color:#00d563;flex:none;">✓</span> Está cansado de cobrar barato e ouvir "tá caro"</li>
+          <li style="display:flex;gap:11px;font-size:15px;color:#d6dad6;line-height:1.5;"><span style="color:#00d563;flex:none;">✓</span> Quer faturar em dólar mesmo sem inglês fluente</li>
+          <li style="display:flex;gap:11px;font-size:15px;color:#d6dad6;line-height:1.5;"><span style="color:#00d563;flex:none;">✓</span> Topa seguir um passo a passo e aplicar</li>
+        </ul>
+      </div>
+      <div data-reveal="" style="background:#0b0d0c;border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:32px;">
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;margin:0 0 20px;color:#9aa09b;">Não é pra você se…</h3>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;">
+          <li style="display:flex;gap:11px;font-size:15px;color:#8a8f8b;line-height:1.5;"><span style="color:#ef6b6b;flex:none;">✕</span> Procura dinheiro fácil sem trabalhar</li>
+          <li style="display:flex;gap:11px;font-size:15px;color:#8a8f8b;line-height:1.5;"><span style="color:#ef6b6b;flex:none;">✕</span> Não tem nenhuma habilidade pra oferecer ainda</li>
+          <li style="display:flex;gap:11px;font-size:15px;color:#8a8f8b;line-height:1.5;"><span style="color:#ef6b6b;flex:none;">✕</span> Não está disposto a sair da zona de conforto</li>
+          <li style="display:flex;gap:11px;font-size:15px;color:#8a8f8b;line-height:1.5;"><span style="color:#ef6b6b;flex:none;">✕</span> Acha que assistir aula sem aplicar traz resultado</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BÔNUS ===== -->
+  <section style="max-width:1180px;margin:108px auto 0;padding:0 28px;">
+    <div style="text-align:center;max-width:680px;margin:0 auto 46px;">
+      <div style="font-family:'JetBrains Mono',monospace;color:#00d563;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px;">Bônus inclusos</div>
+      <h2 data-scrollfloat="" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,42px);line-height:1.06;letter-spacing:-0.02em;margin:0;">Leva tudo isso junto</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;max-width:880px;margin:0 auto;">
+      <div style="display:flex;gap:16px;background:#0b0d0c;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px;" data-glow="">
+        <div style="flex:none;width:44px;height:44px;border-radius:11px;background:rgba(0,213,99,0.12);color:#00d563;display:flex;align-items:center;justify-content:center;font-size:20px;">📄</div>
+        <div><div style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;margin-bottom:5px;">Templates de proposta em inglês</div><p style="font-size:13px;color:#9ca39d;margin:0;line-height:1.5;">Copie, cole e adapte. Prontos pra enviar e fechar.</p></div>
+      </div>
+      <div style="display:flex;gap:16px;background:#0b0d0c;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px;" data-glow="">
+        <div style="flex:none;width:44px;height:44px;border-radius:11px;background:rgba(0,213,99,0.12);color:#00d563;display:flex;align-items:center;justify-content:center;font-size:20px;">💹</div>
+        <div><div style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;margin-bottom:5px;">Planilha de precificação em USD</div><p style="font-size:13px;color:#9ca39d;margin:0;line-height:1.5;">Saiba exatamente quanto cobrar em dólar por projeto.</p></div>
+      </div>
+      <div style="display:flex;gap:16px;background:#0b0d0c;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px;" data-glow="">
+        <div style="flex:none;width:44px;height:44px;border-radius:11px;background:rgba(0,213,99,0.12);color:#00d563;display:flex;align-items:center;justify-content:center;font-size:20px;">👥</div>
+        <div><div style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;margin-bottom:5px;">Comunidade de alunos</div><p style="font-size:13px;color:#9ca39d;margin:0;line-height:1.5;">Networking, indicações de clientes e suporte diário.</p></div>
+      </div>
+      <div style="display:flex;gap:16px;background:#0b0d0c;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px;" data-glow="">
+        <div style="flex:none;width:44px;height:44px;border-radius:11px;background:rgba(0,213,99,0.12);color:#00d563;display:flex;align-items:center;justify-content:center;font-size:20px;">🌎</div>
+        <div><div style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;margin-bottom:5px;">Lista de 50+ plataformas</div><p style="font-size:13px;color:#9ca39d;margin:0;line-height:1.5;">Onde encontrar clientes no exterior pagando bem hoje.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OFERTA / ESCASSEZ ===== -->
+  <section id="oferta" style="max-width:680px;margin:112px auto 0;padding:0 28px;scroll-margin-top:80px;">
+    <div data-reveal="" style="position:relative;background:radial-gradient(120% 120% at 50% 0%,rgba(0,213,99,0.14),#0b0d0c 55%);border:1px solid rgba(0,213,99,0.4);border-radius:24px;padding:44px 36px;text-align:center;box-shadow:0 40px 100px -40px rgba(0,213,99,0.4);">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(239,68,68,0.12);border:1px solid rgba(239,107,107,0.4);color:#ff8b8b;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;padding:7px 13px;border-radius:999px;margin-bottom:22px;">
+        <span style="width:7px;height:7px;border-radius:50%;background:#ef4444;animation:mg-blink 1.2s infinite;"></span>
+        OFERTA EXPIRA EM <span>{{ cd.m }}:{{ cd.s }}</span>
+      </div>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,4vw,40px);line-height:1.05;letter-spacing:-0.02em;margin:0 0 10px;">Acesso completo ao<br>Método Dólar</h2>
+      <p style="font-size:15px;color:#9ca39d;margin:0 0 26px;">Curso + todos os bônus + comunidade. Acesso vitalício.</p>
+      <div style="display:flex;align-items:baseline;justify-content:center;gap:12px;margin-bottom:6px;">
+        <span style="font-size:18px;color:#7c817d;text-decoration:line-through;">R$497</span>
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:64px;color:#00d563;letter-spacing:-0.03em;line-height:1;">R$97</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#9ca39d;margin-bottom:28px;">pagamento único · ou 12x de R$9,70</div>
+      <a href="https://pay.kiwify.com.br/vq8oeyM" style="text-decoration:none;display:flex;align-items:center;justify-content:center;gap:10px;background:#00d563;color:#04140b;font-weight:700;font-size:18px;padding:19px;border-radius:14px;box-shadow:0 16px 44px -12px rgba(0,213,99,0.8);">
+        QUERO COMEÇAR AGORA →
+      </a>
+      <div style="display:flex;align-items:center;justify-content:center;gap:18px;margin-top:20px;flex-wrap:wrap;font-size:12px;color:#8a8f8b;">
+        <span style="display:inline-flex;align-items:center;gap:6px;"><span style="color:#00d563;">🔒</span> Compra segura</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;"><span style="color:#00d563;">⚡</span> Acesso imediato</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;"><span style="color:#00d563;">↺</span> 7 dias de garantia</span>
+      </div>
+      <div style="margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.08);font-size:13px;color:#9ca39d;">
+        <span style="color:#00d563;font-weight:600;">{{ viewers }} pessoas</span> vendo essa página agora · restam <span style="color:#ff8b8b;font-weight:600;">{{ spots }} vagas</span> nesse valor
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GARANTIA ===== -->
+  <section style="max-width:680px;margin:40px auto 0;padding:0 28px;">
+    <div data-reveal="" style="display:flex;gap:20px;align-items:center;background:#0b0d0c;border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:28px;">
+      <div style="flex:none;width:70px;height:70px;border-radius:50%;border:2px dashed rgba(0,213,99,0.5);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;color:#00d563;font-size:15px;line-height:1;text-align:center;">7<br>DIAS</div>
+      <div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;margin:0 0 7px;">Risco zero pra você</h3>
+        <p style="font-size:14px;color:#9ca39d;line-height:1.55;margin:0;">Entrou, assistiu e não curtiu? Devolvo 100% do seu dinheiro em até 7 dias. Sem perguntas, sem burocracia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section style="max-width:760px;margin:104px auto 0;padding:0 28px;">
+    <div style="text-align:center;margin-bottom:40px;">
+      <div style="font-family:'JetBrains Mono',monospace;color:#00d563;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px;">Dúvidas frequentes</div>
+      <h2 data-scrollfloat="" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,3.4vw,38px);letter-spacing:-0.02em;margin:0;">Antes de você perguntar</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <sc-for list="{{ faqs }}" as="item" hint-placeholder-count="5">
+        <div data-reveal="" style="background:#0b0d0c;border:1px solid rgba(255,255,255,0.08);border-radius:14px;overflow:hidden;">
+          <button onclick="{{ item.toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;background:none;border:none;cursor:pointer;padding:20px 22px;text-align:left;color:#f4f5f3;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:600;">
+            <span>{{ item.q }}</span>
+            <span style="flex:none;color:#00d563;font-size:22px;transition:transform .2s;transform:{{ item.rot }};">+</span>
+          </button>
+          <sc-if value="{{ item.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:0 22px 20px;font-size:15px;line-height:1.6;color:#9ca39d;">{{ item.a }}</div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section style="max-width:760px;margin:96px auto 0;padding:0 28px;text-align:center;">
+    <h2 data-scrollfloat="" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(30px,4.4vw,52px);line-height:1.02;letter-spacing:-0.03em;margin:0 0 20px;">Seu próximo cliente<br>fala <span style="color:#00d563;">inglês.</span></h2>
+    <p data-reveal="" style="font-size:17px;color:#a9aeaa;max-width:480px;margin:0 auto 30px;line-height:1.55;">Por R$97 você tem o mapa completo pra fechar lá fora em 30 dias. A única pergunta é: por quanto tempo mais você vai cobrar em real?</p>
+    <a data-reveal="" href="https://pay.kiwify.com.br/vq8oeyM" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;background:#00d563;color:#04140b;font-weight:700;font-size:18px;padding:18px 36px;border-radius:14px;box-shadow:0 16px 44px -12px rgba(0,213,99,0.7);">COMEÇAR POR R$97 →</a>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="max-width:1180px;margin:96px auto 0;padding:32px 28px 48px;border-top:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+    <div style="display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;">
+      <span style="position:relative;display:inline-flex;align-items:center;width:56px;height:28px;border-radius:999px;border:2px solid #00d563;background:#06140d;flex:none;">
+        <span style="font-weight:700;font-size:10px;color:#52575a;position:absolute;left:8px;">R$</span>
+        <span style="position:absolute;right:2px;top:50%;transform:translateY(-50%);width:22px;height:22px;border-radius:50%;background:#00d563;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#04140b;">$</span>
+      </span>
+      MÉTODO <span style="color:#00d563;">DÓLAR</span>
+    </div>
+    <div style="font-size:12px;color:#6a6f6b;max-width:520px;line-height:1.5;">© 2026 Leonardo Dorea · Método Dólar. Este produto não garante resultados. Os resultados dependem da aplicação de cada aluno.</div>
+  </footer>
+
+  <!-- ===== SALES NOTIFICATION TOAST ===== -->
+  <sc-if value="{{ showToast }}" hint-placeholder-val="{{ false }}">
+    <div style="{{ toastStyle }}">
+      <div style="display:flex;align-items:center;gap:13px;background:#0f1311;border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:13px 15px;box-shadow:0 20px 50px -16px rgba(0,0,0,0.85);min-width:300px;max-width:340px;">
+        <span style="flex:none;width:40px;height:40px;border-radius:11px;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;color:#04140b;background:{{ notif.color }};">{{ notif.initial }}</span>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:14px;font-weight:600;color:#f4f5f3;line-height:1.3;">{{ notif.name }} <span style="color:#9ca39d;font-weight:400;">comprou</span></div>
+          <div style="font-size:12px;color:#9ca39d;line-height:1.3;">Método Dólar · {{ notif.city }}</div>
+        </div>
+        <div style="flex:none;text-align:right;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#00d563;">{{ notif.amount }}</div>
+          <div style="font-size:11px;color:#6a6f6b;">{{ notif.time }}</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:5px;margin-top:6px;padding-left:4px;font-size:10px;color:#5a5f5b;font-family:'JetBrains Mono',monospace;letter-spacing:0.03em;">
+        <span style="width:5px;height:5px;border-radius:50%;background:#635bff;display:inline-block;"></span> via stripe · verificado
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:420,&quot;height&quot;:900},&quot;showNotifications&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;countdownMinutes&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:15,&quot;min&quot;:5,&quot;max&quot;:120,&quot;tsType&quot;:&quot;number&quot;},&quot;spotsLeft&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:17,&quot;min&quot;:1,&quot;max&quot;:99,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  state = {
+    notifIndex: 0,
+    showToast: false,
+    cdSeconds: 0,
+    viewers: 0,
+    openFaq: 0,
+  };
+
+  notifs = [
+    { name: 'Mateus R.',  city: 'Curitiba',       initial: 'M', color: 'linear-gradient(135deg,#00d563,#0a8f45)' },
+    { name: 'Juliana A.', city: 'Belo Horizonte',  initial: 'J', color: 'linear-gradient(135deg,#3ddc84,#0c7a3e)' },
+    { name: 'Rafael S.',  city: 'Recife',          initial: 'R', color: 'linear-gradient(135deg,#00d563,#0a8f45)' },
+    { name: 'Camila F.',  city: 'São Paulo',       initial: 'C', color: 'linear-gradient(135deg,#3ddc84,#0c7a3e)' },
+    { name: 'Bruno M.',   city: 'Porto Alegre',    initial: 'B', color: 'linear-gradient(135deg,#00d563,#0a8f45)' },
+    { name: 'Larissa T.', city: 'Florianópolis',   initial: 'L', color: 'linear-gradient(135deg,#3ddc84,#0c7a3e)' },
+    { name: 'Diego P.',   city: 'Goiânia',         initial: 'D', color: 'linear-gradient(135deg,#00d563,#0a8f45)' },
+    { name: 'Aline C.',   city: 'Fortaleza',       initial: 'A', color: 'linear-gradient(135deg,#3ddc84,#0c7a3e)' },
+    { name: 'Thiago L.',  city: 'Campinas',        initial: 'T', color: 'linear-gradient(135deg,#00d563,#0a8f45)' },
+    { name: 'Marina V.',  city: 'Salvador',        initial: 'M', color: 'linear-gradient(135deg,#3ddc84,#0c7a3e)' },
+  ];
+
+  faqData = [
+    { q: 'Preciso saber inglês fluente?', a: 'Não. Dá pra fechar muita coisa só no texto, sem precisar de call. E tem um caminho que nem exige inglês: vender pra brasileiros que moram no exterior — em português e recebendo em dólar.' },
+    { q: 'Funciona pra qual tipo de serviço?', a: 'Dev, design, edição de vídeo, social media, tráfego, copy, VA, consultoria... Se você já presta (ou consegue prestar) um serviço, dá pra vender lá fora. O método ensina como posicionar o seu nicho.' },
+    { q: 'Em quanto tempo vejo resultado?', a: 'A meta do método é o primeiro cliente no exterior em até 30 dias aplicando o passo a passo. Quem dedica e segue o processo costuma fechar antes disso.' },
+    { q: 'Como eu recebo o dinheiro em dólar?', a: 'Tem um módulo inteiro sobre isso. Nas aulas eu mostro as melhores plataformas pra receber em dólar, com as menores taxas e sem burocracia — sem precisar de empresa no exterior.' },
+    { q: 'E se eu não gostar?', a: 'Você tem 7 dias de garantia incondicional. Se não fizer sentido pra você, devolvo 100% do valor sem perguntas.' },
+    { q: 'O acesso é vitalício?', a: 'Sim. Você paga uma vez e tem acesso pra sempre ao curso, aos bônus e às atualizações futuras, além da comunidade de alunos.' },
+  ];
+
+  componentDidMount() {
+    this.initParticles();
+    this.initGlow();
+    this.initScrollFloat();
+    this.initReveal();
+    this.initCounters();
+    this.initCheckout();
+    const showNotifs = false; // toasts de "fulano comprou" desativados (era this.props.showNotifications ?? true)
+    // countdown: persist a deadline so urgency survives reload
+    const mins = this.props.countdownMinutes ?? 15;
+    let dl = parseInt(localStorage.getItem('mg_deadline') || '0', 10);
+    const now = Date.now();
+    if (!dl || dl < now) { dl = now + mins * 60000; localStorage.setItem('mg_deadline', String(dl)); }
+    this.deadline = dl;
+    this.tick();
+    this._cd = setInterval(() => this.tick(), 1000);
+
+    // live viewers jitter
+    this.setState({ viewers: 30 + Math.floor(Math.random() * 18) });
+    this._vw = setInterval(() => {
+      this.setState(s => {
+        let v = s.viewers + (Math.floor(Math.random() * 7) - 3);
+        v = Math.max(22, Math.min(58, v));
+        return { viewers: v };
+      });
+    }, 4200);
+
+    // rotating sales notifications
+    if (showNotifs) {
+      this._loop = () => {
+        this.setState({ showToast: true });
+        this._hide = setTimeout(() => {
+          this.setState(s => ({ showToast: false, notifIndex: (s.notifIndex + 1) % this.notifs.length }));
+          this._next = setTimeout(this._loop, 4500 + Math.random() * 3500);
+        }, 5000);
+      };
+      this._first = setTimeout(this._loop, 3500);
+    }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this._cd); clearInterval(this._vw);
+    clearTimeout(this._first); clearTimeout(this._hide); clearTimeout(this._next);
+    cancelAnimationFrame(this._pRaf);
+    if (this._pResize) window.removeEventListener('resize', this._pResize);
+    if (this._pRO) this._pRO.disconnect();
+    if (this._sfCheck) { window.removeEventListener('scroll', this._sfCheck); window.removeEventListener('resize', this._sfCheck); }
+    if (this._mgCheck) { window.removeEventListener('scroll', this._mgCheck); window.removeEventListener('resize', this._mgCheck); window.removeEventListener('load', this._mgCheck); }
+    if (this._cCheck) { window.removeEventListener('scroll', this._cCheck); window.removeEventListener('resize', this._cCheck); }
+  }
+
+  initGlow() {
+    document.querySelectorAll('[data-glow]').forEach((card) => {
+      card.style.borderColor = 'rgba(0,213,99,0.30)';
+      card.style.boxShadow = '0 0 0 1px rgba(0,213,99,0.10), 0 0 26px -10px rgba(0,213,99,0.32), inset 0 0 24px -18px rgba(0,213,99,0.55)';
+    });
+  }
+
+  initReveal() {
+    const els = Array.from(document.querySelectorAll('[data-reveal], [data-glow]'));
+    if (!els.length) return;
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Estado escondido + transição vêm do CSS; revelar = adicionar a classe .mg-in
+    // (classe via stylesheet sobrevive aos re-renders do runtime; inline não).
+    if (reduce) { els.forEach((el) => el.classList.add('mg-in')); return; }
+
+    // Agrupa o que entra no mesmo frame e escalona de cima pra baixo.
+    let queue = [], scheduled = false;
+    const flush = () => {
+      scheduled = false;
+      const batch = queue; queue = [];
+      batch.sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top);
+      batch.forEach((el, i) => setTimeout(() => el.classList.add('mg-in'), i * 90));
+    };
+    const reveal = (el) => {
+      if (el._mgShown) return;
+      el._mgShown = true;
+      queue.push(el);
+      if (!scheduled) { scheduled = true; setTimeout(flush, 16); }
+    };
+    const check = () => {
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      els.forEach((el) => {
+        if (el._mgShown) return;
+        const r = el.getBoundingClientRect();
+        if (r.top < vh * 0.9 && r.bottom > 0) reveal(el);
+      });
+    };
+    this._mgCheck = check;
+    window.addEventListener('scroll', check, { passive: true });
+    window.addEventListener('resize', check);
+    window.addEventListener('load', check);
+    setTimeout(check, 0);
+    setTimeout(check, 250);
+  }
+
+  initCounters() {
+    const nodes = Array.from(document.querySelectorAll('[data-count]'));
+    if (!nodes.length) return;
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const fmt = (n, sep) => {
+      let s = String(Math.round(n));
+      if (sep) s = s.replace(/\B(?=(\d{3})+(?!\d))/g, sep);
+      return s;
+    };
+    const render = (el, val) => {
+      const pre = el.getAttribute('data-count-prefix') || '';
+      const suf = el.getAttribute('data-count-suffix') || '';
+      const sep = el.getAttribute('data-count-sep') || '';
+      el.textContent = pre + fmt(val, sep) + suf;
+    };
+    nodes.forEach((el) => { el._cTarget = parseFloat(el.getAttribute('data-count')) || 0; render(el, 0); });
+    if (reduce) { nodes.forEach((el) => render(el, el._cTarget)); return; }
+
+    const run = (el) => {
+      if (el._cDone) return;
+      el._cDone = true;
+      const target = el._cTarget, dur = 1400, start = Date.now();
+      const step = () => {
+        const t = Math.min(1, (Date.now() - start) / dur);
+        render(el, target * (1 - Math.pow(1 - t, 3))); // easeOutCubic
+        if (t < 1) setTimeout(step, 32); else render(el, target);
+      };
+      step();
+    };
+    const check = () => {
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      nodes.forEach((el) => {
+        if (el._cDone) return;
+        const r = el.getBoundingClientRect();
+        if (r.top < vh * 0.92 && r.bottom > 0) run(el);
+      });
+    };
+    this._cCheck = check;
+    window.addEventListener('scroll', check, { passive: true });
+    window.addEventListener('resize', check);
+    setTimeout(check, 0);
+    setTimeout(check, 250);
+  }
+
+  initCheckout() {
+    // Repassa os parâmetros da URL da página (utm_*, fbclid, gclid, sck...) pro checkout.
+    const qs = window.location.search;
+    if (!qs || qs.length < 2) return;
+    const extra = qs.replace(/^\?/, '');
+    document.querySelectorAll('a[href*="pay.kiwify.com.br"]').forEach((a) => {
+      const href = a.getAttribute('href') || '';
+      const sep = href.indexOf('?') === -1 ? '?' : '&';
+      a.setAttribute('href', href + sep + extra);
+    });
+  }
+
+  initScrollFloat() {
+    const targets = document.querySelectorAll('[data-scrollfloat]');
+    const baseStyle = 'display:inline-block;opacity:0;transform:translateY(26px);filter:blur(6px);transition:opacity .6s ease, transform .65s cubic-bezier(.2,.8,.2,1), filter .6s ease;';
+    targets.forEach((el) => {
+      const tokens = [];
+      Array.from(el.childNodes).forEach((node) => {
+        if (node.nodeType === 3) {
+          if (!node.textContent.trim()) return;
+          const parts = node.textContent.split(/(\s+)/);
+          const frag = document.createDocumentFragment();
+          parts.forEach((p) => {
+            if (!p.trim()) { frag.appendChild(document.createTextNode(p)); return; }
+            const s = document.createElement('span');
+            s.textContent = p;
+            s.style.cssText = baseStyle;
+            tokens.push(s);
+            frag.appendChild(s);
+          });
+          node.replaceWith(frag);
+        } else if (node.nodeType === 1 && node.tagName !== 'BR') {
+          node.style.display = 'inline-block';
+          node.style.opacity = '0';
+          node.style.transform = 'translateY(26px)';
+          node.style.filter = 'blur(6px)';
+          node.style.transition = 'opacity .6s ease, transform .65s cubic-bezier(.2,.8,.2,1), filter .6s ease';
+          tokens.push(node);
+        }
+      });
+      el._sfTokens = tokens;
+    });
+    const reveal = (el) => {
+      if (el._sfDone) return;
+      el._sfDone = true;
+      (el._sfTokens || []).forEach((t, i) => {
+        setTimeout(() => {
+          t.style.opacity = '1';
+          t.style.transform = 'translateY(0)';
+          t.style.filter = 'blur(0)';
+        }, i * 55);
+      });
+    };
+    const check = () => {
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      targets.forEach((el) => {
+        if (el._sfDone) return;
+        const r = el.getBoundingClientRect();
+        if (r.top < vh * 0.92 && r.bottom > 0) reveal(el);
+      });
+    };
+    this._sfCheck = check;
+    window.addEventListener('scroll', check, { passive: true });
+    window.addEventListener('resize', check);
+    requestAnimationFrame(check);
+    setTimeout(check, 250);
+  }
+
+  initParticles() {
+    const canvas = document.querySelector('[data-mg-particles]');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let w = 0, h = 0, dpr = 1, parts = [], link = 130;
+    const resize = () => {
+      const r = canvas.getBoundingClientRect();
+      if (!r.width || !r.height) return;
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const nw = Math.round(r.width * dpr), nh = Math.round(r.height * dpr);
+      if (nw === w && nh === h && parts.length) return;
+      w = canvas.width = nw; h = canvas.height = nh;
+      link = 130 * dpr;
+      const count = Math.round((r.width * r.height) / 13000);
+      parts = Array.from({ length: Math.max(20, Math.min(64, count)) }, () => ({
+        x: Math.random() * w, y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.28 * dpr,
+        vy: (Math.random() - 0.5) * 0.28 * dpr,
+        r: (Math.random() * 1.5 + 0.6) * dpr,
+      }));
+    };
+    this._pResize = resize;
+    window.addEventListener('resize', resize);
+    if (typeof ResizeObserver !== 'undefined') { this._pRO = new ResizeObserver(resize); this._pRO.observe(canvas); }
+    resize();
+    const draw = () => {
+      this._pRaf = requestAnimationFrame(draw);
+      if (!parts.length) { resize(); return; }
+      ctx.clearRect(0, 0, w, h);
+      for (const p of parts) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > w) p.vx *= -1;
+        if (p.y < 0 || p.y > h) p.vy *= -1;
+      }
+      for (let i = 0; i < parts.length; i++) {
+        for (let j = i + 1; j < parts.length; j++) {
+          const a = parts[i], b = parts[j];
+          const dx = a.x - b.x, dy = a.y - b.y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < link) {
+            ctx.strokeStyle = 'rgba(0,213,99,' + (0.15 * (1 - d / link)).toFixed(3) + ')';
+            ctx.lineWidth = dpr * 0.6;
+            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+          }
+        }
+      }
+      for (const p of parts) {
+        ctx.fillStyle = 'rgba(0,213,99,0.45)';
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill();
+      }
+    };
+    draw();
+  }
+
+  tick() {
+    const left = Math.max(0, Math.floor((this.deadline - Date.now()) / 1000));
+    if (left <= 0) {
+      const mins = this.props.countdownMinutes ?? 15;
+      this.deadline = Date.now() + mins * 60000;
+      localStorage.setItem('mg_deadline', String(this.deadline));
+    }
+    this.setState({ cdSeconds: left });
+  }
+
+  pad(n) { return String(n).padStart(2, '0'); }
+
+  renderVals() {
+    const n = this.notifs[this.state.notifIndex];
+    const amounts = ['R$97', 'R$97', 'R$97'];
+    const notif = {
+      name: n.name, city: n.city, initial: n.initial, color: n.color,
+      amount: 'R$97', time: 'agora',
+    };
+
+    const total = this.state.cdSeconds;
+    const cd = { m: this.pad(Math.floor(total / 60)), s: this.pad(total % 60) };
+
+    const toastStyle = {
+      position: 'fixed', left: '22px', bottom: '22px', zIndex: 80,
+      opacity: this.state.showToast ? 1 : 0,
+      transform: this.state.showToast ? 'translateY(0)' : 'translateY(16px)',
+      transition: 'opacity .45s ease, transform .45s cubic-bezier(.2,.8,.2,1)',
+      pointerEvents: 'none',
+    };
+
+    const faqs = this.faqData.map((f, i) => ({
+      q: f.q, a: f.a,
+      open: this.state.openFaq === i,
+      rot: this.state.openFaq === i ? 'rotate(45deg)' : 'rotate(0deg)',
+      toggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? -1 : i })),
+    }));
+
+    return {
+      notif, showToast: this.state.showToast, toastStyle,
+      cd, viewers: this.state.viewers,
+      spots: this.props.spotsLeft ?? 17,
+      faqs,
+    };
+  }
+}
+</script>
+
+
+</body></html>
